@@ -56,19 +56,7 @@ fi
 echo ">>> Installing ML libraries"
 
 # does the requirements already update?
-pip install -U pandas 
-pip install -U graphviz
-pip install -U requests
-pip install -U bs4
-pip install -U pymorphy2
-pip install -U gensim
-pip install -U numpy
-pip install -U matplotlib
-pip install -U sklearn
-pip install -U hyperopt
-pip install -U seaborn
-pip install -U scipy
-pip install -U networkx==1.11
+pip install -r /data/requirements.txt
 
 # does the jupyter file already exist?
 command -v jupyter 
