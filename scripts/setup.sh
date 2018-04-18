@@ -15,7 +15,7 @@ if [ $? -ne 0 ]; then
 fi
 
 # does the Docker file already exist?
-command -v docker 
+command -v docker
 if [ $? -ne 0 ]; then
     # Docker
     echo ">>> Installing Docker" 
@@ -55,6 +55,21 @@ fi
 
 echo ">>> Installing ML libraries"
 
+# does the requirements already update?
+pip install -U pandas 
+pip install -U graphviz
+pip install -U requests
+pip install -U bs4
+pip install -U pymorphy2
+pip install -U gensim
+pip install -U numpy
+pip install -U matplotlib
+pip install -U sklearn
+pip install -U hyperopt
+pip install -U seaborn
+pip install -U scipy
+pip install -U networkx==1.11
+
 # does the jupyter file already exist?
 command -v jupyter 
 if [ $? -ne 0 ]; then
@@ -67,6 +82,7 @@ if [ $? -ne 0 ]; then
     mkdir -p /home/vagrant/.jupyter/
     cp -r /data/jupyter_notebook_config.py /home/vagrant/.jupyter/
 fi
+
 echo ">>> Demonization Jupyter"
 
 systemctl enable jupyter.service
@@ -75,7 +91,7 @@ systemctl restart jupyter.service
 systemctl status jupyter
 jupyter notebook list
 
-echo "Jupyter == http://localhost:8888/?token=sha1:cf2a799f39bc:aad334f602bf3425668db12f7170e8048eac99d6"
+echo "Jupyter == http://localhost:8080/?token=sha1:cf2a799f39bc:aad334f602bf3425668db12f7170e8048eac99d6"
 # ifconfig -a | grep 'inet ' | grep -v '0.1'  | awk '{print $2}' | cut -f1 -d'/'
 
 echo ">>> Finished setuping."

@@ -15,6 +15,7 @@ Vagrant.configure("2") do |config|
   config.vm.hostname = "DataScience"
   config.vm.box = "ubuntu/xenial64"
   config.vm.define "Ubuntu16_DataScience"
+  config.disksize.size = '20GB'
   # Disable automatic box update checking. If you disable this, then
   # boxes will only be checked for updates when the user runs
   # `vagrant box outdated`. This is not recommended.
@@ -55,9 +56,9 @@ Vagrant.configure("2") do |config|
 
   #   # Display the VirtualBox GUI when booting the machine
   #   vb.gui = true
-  #
-  #   # Customize the amount of memory on the VM:
+  # Customize the count of cpy on the VM:
     vb.cpus = 4
+  # Customize the amount of memory on the VM:
     vb.memory = "8192"
   end
   #

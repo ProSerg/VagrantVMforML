@@ -1,20 +1,31 @@
-The guest machine entered an invalid state while waiting for it
-to boot. Valid states are 'starting, running'. The machine is in the
-'unknown' state. Please verify everything is configured
-properly and try again.
+1. Установить VirtualBox
+https://www.virtualbox.org/wiki/Download_Old_Builds_5_2
 
-If the provider you're using has a GUI that comes with it,
-it is often helpful to open that and watch the machine, since the
-GUI often has more helpful error messages than Vagrant can retrieve.
-For example, if you're using VirtualBox, run `vagrant up` while the
-VirtualBox GUI is open.
+2. Установить vagrant
+https://www.vagrantup.com/downloads.html
 
-The primary issue for this error is that the provider you're using
-is not properly configured. This is very rarely a Vagrant issue.
+3. Добавить в PATH vagrant.exe
 
+4. В рабочую директорию скачать данные исходники из https://github.com/ProSerg/VagrantVMforML
 
+5. Через командую строку cmd зайти в рабочую диреткорию.
 
-# todo
+6. выполнить комманды
 
-1. requrement.txt
-2. swap
+```
+vagrant init ubuntu/xenial64
+vagrant plugin install vagrant-disksize
+vagrant up
+```
+
+Чтобы обновить , добавить пакеты. Нужно добавить в requitements или прописать установку в файл setup.sh.
+А чтобы jupyter подхватил новые пакеты слеудет его перезапустить.
+Можно перезапустить VM что долго. 
+Можно перезапустить jupyter в ручную, что сложно.
+
+vagrant ssh
+sudo systemctl restart jupyter.service
+
+7. Дождаться выполнение комманды. Затема через браузер зайти по адрессу 
+
+http://localhost:8080/?token=sha1:cf2a799f39bc:aad334f602bf3425668db12f7170e8048eac99d6

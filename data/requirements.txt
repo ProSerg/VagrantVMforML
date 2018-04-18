@@ -1,0 +1,13 @@
+pandas 
+graphviz
+requests
+bs4
+pymorphy2
+gensim
+numpy
+matplotlib
+sklearn
+hyperopt
+seaborn
+scipy
+networkx==1.11
